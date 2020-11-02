@@ -6,9 +6,12 @@ option java_multiple_files = true;
 option java_package = "org.example.common.proto.v1";
 
 // The greeting service definition.
-service HelloService {
+service GreetService {
     // Sends a greeting
     rpc SayHello (HelloRequest) returns (HelloReply) {
+    }
+
+    rpc SayBye (ByeRequest) returns (ByeReply) {
     }
 }
 
@@ -19,5 +22,15 @@ message HelloRequest {
 
 // The response message containing the greetings
 message HelloReply {
+    string message = 1;
+}
+
+// The request message containing the user's name.
+message ByeRequest {
+    string name = 1;
+}
+
+// The response message containing the greetings
+message ByeReply {
     string message = 1;
 }
